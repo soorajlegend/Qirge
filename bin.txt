@@ -1,0 +1,142 @@
+
+// function classifyNumber($number) {
+//     // Convert the number to a string to iterate through each digit
+//     $numberString = (string)$number;
+
+//     // Get the length of the number
+//     $length = strlen($numberString);
+
+//     // Initialize an array to store the result
+//     $result = [];
+
+//     $activePrefix = 120;
+
+
+//     // Iterate through each digit in reverse order
+//     for ($i = $length - 1; $i >= 0; $i--) {
+//         $digit = (int)$numberString[$i];
+//         $position = $length - $i;
+//         $thereIsNext = @(int)$numberString[$i+1];
+//         $numberUnit = "";
+
+//         // Determine the class based on the position
+//         switch ($position) {
+//             case 1:
+//                 $sound = "unit";
+//                 $numberUnit = "unit";
+//                 $activePrefix = $i == $length ? "unit" : $activePrefix;
+//                 break;
+//             case 2:
+//                 $sound = "tens";
+//                 $numberUnit = "tens";
+//                 $activePrefix = $i == $length ? "tens" : $activePrefix;
+//                 break;
+//             case 3:
+//                 $sound = "100";
+//                 $numberUnit = "100";
+//                 $activePrefix = $i == $length ? "100" : $activePrefix;
+//                 break;
+//             case 4:
+//                 $sound = "1k";
+//                 $numberUnit = "1k";
+//                 $activePrefix = $i == $length ? "1k" : $activePrefix;
+//                 break;
+//             case 5:
+//                 $sound = "1k";
+//                 $numberUnit = "10k";
+//                 $activePrefix = $i == $length ? "1k" : $activePrefix;
+//                 break;
+//             case 6:
+//                 $sound = "1k";
+//                 $numberUnit = "100k";
+//                 $activePrefix = $i == $length ? "1k" : $activePrefix;
+//                 break;
+//             case 7:
+//                 $sound = "1m";
+//                 $numberUnit = "1m";
+//                 $activePrefix = $i == $length ? "1m" : $activePrefix;
+//                 break;
+//             case 8:
+//                 $sound = "1m";
+//                 $numberUnit = "10m";
+//                 $activePrefix = $i == $length ? "1m" : $activePrefix;
+//                 break;
+//             case 9:
+//                 $sound = "1m";
+//                 $numberUnit = "100m";
+//                 $activePrefix = $i == $length ? "1m" : $activePrefix;
+//                 break;
+//             case 10:
+//                 $sound = "1b";
+//                 $numberUnit = "1b";
+//                 $activePrefix = $i == $length ? "1b" : $activePrefix;
+//                 break;
+//             // Extend this switch statement for higher positions as needed
+//             default:
+//                 $sound = "position_$position";
+//         }
+
+        
+//         // Add the digit and its class to the result array for nubers that we need to add 0 to them 
+//         $tens = ($numberUnit === "tens") || ($numberUnit === "10k") || ($numberUnit === "10m");
+
+
+//         // adding digit connectors eg. da, sha
+//         if($thereIsNext){
+//             $connector = ($sound === "tens" || $numberUnit === "10k") && $digit === 1 ? "sha" : "da";
+//             $result[] = $connector;
+//         }
+
+//         // above reading 0
+//         if($digit == 0) {
+//             continue;
+//         }
+
+//         $result[] = $tens ? $digit."0" : $digit;
+        
+//         // add unit sound eg. dari, dubu, million, billion
+//         if($sound !== "tens" && $sound !== "unit"){
+//             // do not add sound in the middle
+//                 $result[] =  $activePrefix;
+//         }
+        
+//     }
+
+//     // Reverse the result array to get the digits in the correct order
+//     $result = array_reverse($result);
+
+//     return $result;
+// }
+// function arrange($number, $sound){
+//     // reset the array
+//     $sound = [];
+
+//     switch ($number){
+//         case 1: $sound[] = "1"; 
+//             break;
+//         case 2: $sound[] = "2"; 
+//             break;
+//         case 3: $sound[] = "3"; 
+//             break;
+//         case 4: $sound[] = "4"; 
+//             break;
+//         case 5: $sound[] = "5"; 
+//             break;
+//         case 6: $sound[] = "6"; 
+//             break;
+//         case 7: $sound[] = "7"; 
+//             break;
+//         case 8: $sound[] = "8"; 
+//             break;
+//         case 9: $sound[] = "9"; 
+//             break;
+//         case 10: $sound[] = "10"; 
+//             break;
+//         case 0: $sound[] = "0"; 
+//             break;
+//         }
+        
+//         return $sound;
+//     }
+  
+        // $classifiedNumber = classifyNumber(16750);
